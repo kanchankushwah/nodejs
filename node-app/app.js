@@ -15,8 +15,8 @@ const bodyParser = require('body-parser');
 
 const app = express();
  
-const adminData = require('./router/admin');
-const indexRoutes = require('./router/index');
+const adminData = require('./routes/admin');
+const indexRoutes = require('./routes/index');
 
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(express.static(path.join(__dirname, 'public')));

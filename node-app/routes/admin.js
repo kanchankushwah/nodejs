@@ -2,7 +2,7 @@ const path = require('path');
 
 const express = require('express');
 
-const rootDir = require('../path/path');
+const rootDir = require('../util/path');
 
 const router = express.Router();
 
@@ -13,7 +13,7 @@ router.get('/users', (req, res, next) => {
     res.sendFile(path.join(rootDir, 'views', 'users.html'));
 });
 
-router.post('/users', (req, res, next) => {
+router.post('/add_users', (req, res, next) => {
     users.push({user: req.body.user});
     //console.log(req.body);
     res.redirect('/');
