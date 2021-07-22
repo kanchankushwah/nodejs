@@ -10,7 +10,7 @@ const app = express();
 app.set('view engine', 'ejs');
 app.set('views', 'views');
 
-const adminRoutes= require('./routes/admin');
+const adminRoutes = require('./routes/admin');
 const shopRoutes = require('./routes/shop');
 
 app.use(bodyParser.urlencoded({
@@ -23,4 +23,4 @@ app.use(shopRoutes);
 
 app.use(errorControllers.get404);
 
-app.listen(3000); 
+app.listen(3000);
