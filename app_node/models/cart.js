@@ -7,13 +7,13 @@ const p = path.join(path.dirname(process.mainModule.filename), 'data', 'cart.jso
 module.exports = class Cart{
     static addProduct(id, productPrice){
         fs.readFile(p, (err, fileContent) => {
-            let cart = {product: [], totalPrice: 0};
+            
+            let cart = {products: [], totalPrice: 0};
             if(!err){
                 cart = JSON.parse(fileContent);
             }
             const existingProductIndex = cart.products.findIndex(prod => prod.id === id);
             const existingProduct = cart.products[existingProductIndex];
-            
             let updatedProduct;
             if(existingProduct){
                 updatedProduct = { ...existingProduct };
@@ -25,8 +25,8 @@ module.exports = class Cart{
                 cart.products = [ ...cart.products, updatedProduct ];
             }
             
-            cart.totalPrice = cart.totalPrice + productPrice;
-            fs.writeFile(p, JSON.stringify(products), err =>{
+            cart.totalPrice = cart.totalPrice + (+productPrice);
+            fs.writeFile(p, JSON.stringify(cart), err =>{
                 console.log(err);
             });
         });
