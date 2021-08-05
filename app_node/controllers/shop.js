@@ -10,7 +10,6 @@ exports.getProducts = (req, res, next) => {
             path: '/products'
         });
     });
-
 };
 
 exports.getProduct = (req, res, next) => {
